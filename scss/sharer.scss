@@ -1,0 +1,24 @@
+// Buttons Colors
+@import "configuration/colors";
+@import "configuration/functions";
+@import "configuration/mixins";
+// Templates
+@import "templates/circles";
+@import "templates/rounded";
+
+.sharer-buttons-toolbar {
+    width: 100%;
+    margin: 15px auto;
+
+    @media only screen and (max-width: 765px) {
+        margin: 10px auto 0;
+    }
+
+    @media only screen and (max-width: 325px) {
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 220px) {
+        text-align: left !important;
+    }
+}

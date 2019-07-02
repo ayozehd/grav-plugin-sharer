@@ -1,0 +1,74 @@
+enabled: true
+built_in_css: true
+fontawesome_icons: true
+fontawesome_v4: false
+fontawesome_css: true
+template: rounded
+classes:
+buttons:
+    facebook:
+        enabled: true
+        label: Facebook
+        icon: facebook
+    twitter:
+        enabled: true
+        label: Twitter
+        icon: twitter
+        via:
+        hashtags:
+        title:
+    linkedin:
+        enabled: true
+        label: Linkedin
+        icon: linkedin
+    reddit:
+        enabled: true
+        label: Reddit
+        icon: reddit
+    pinterest:
+        enabled: true
+        label: Pinterest
+        icon: pinterest
+    flipboard:
+        enabled: true
+        label: Flipboard
+        icon: flipboard
+    whatsapp:
+        enabled: true
+        label: WhatsApp
+        icon: whatsapp
+        title: true
+    telegram:
+        enabled: true
+        label: Telegram
+        icon: telegram
+        to:
+        title:
+    pocket:
+        enabled: true
+        label: Pocket
+        icon: get-pocket
+    xing:
+        enabled: true
+        label: Xing
+        icon: xing
+        title:
+    email:
+        enabled: true
+        label: Email
+        icon: envelope
+        icon_group: fas
+        to:
+        subject:
+        title:
+    tumblr:
+        enabled: true
+        label: Tumblr
+        icon: tumblr
+        caption:
+        title:
+    line:
+        enabled: true
+        label: Line
+        icon: line
+        title:

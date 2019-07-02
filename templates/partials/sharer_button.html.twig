@@ -1,0 +1,21 @@
+<button class="sharer-button-{{ template }} {{ sharer }}" data-sharer="{{ sharer }}"
+    data-url="{{ url|defined('#') }}"
+    {% if data.title %}data-title="{{ data.title|defined(page.title) }}"{% endif %}
+    {% if data.hashtags %}data-hashtags="{{ data.hashtags|join(',') }}"{% endif %}
+    {% if data.hashtag %}data-hashtag="{{ data.hashtag|defined('') }}"{% endif %}   {# Facebook only supports single tag #}
+    {% if data.via %}data-via="{{ data.via|defined('') }}"{% endif %}
+    {% if data.to %}data-to="{{ data.to|defined('') }}"{% endif %}
+    {% if data.subject %}data-subject="{{ data.subject|defined('') }}"{% endif %}
+    {% if data.image %}data-image="{{ data.image|defined('') }}"{% endif %}
+    {% if data.picture %}data-picture="{{ data.picture|defined('') }}"{% endif %}
+    {% if data.image %}data-picture="{{ data.image|defined('') }}"{% endif %}
+    {% if data.caption %}data-caption="{{ data.caption|defined('') }}"{% endif %}
+    {% if data.description %}data-description="{{ data.description|defined('') }}"{% endif %}
+    >
+    {% if icon %}
+    <span class="sharer-icon">
+        {{ icon }}
+    </span>
+    {% endif %}
+    <span class="sharer-label">{{ data.label }}</span>
+</button>

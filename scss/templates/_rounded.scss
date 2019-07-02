@@ -1,0 +1,33 @@
+button.sharer-button-rounded {
+    display: inline-block;
+    padding: 4px 10px ;
+    border: 1px solid transparent;
+    margin: 0 auto 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #fff;
+    opacity: .89;
+    transition: opacity 0.15s linear;
+
+    .sharer-icon {        
+        svg {
+            path {
+                fill: #fff;
+            }
+        }
+    }
+
+    .sharer-label {
+        vertical-align: middle;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+@each $color, $value in $colors {
+    .sharer-button-rounded.#{$color} {
+        background: $value;
+    }
+}

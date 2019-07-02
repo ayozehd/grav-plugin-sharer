@@ -1,0 +1,415 @@
+name: Sharer
+version: 0.2
+description: "**Sharer** is a plugin that lets you add social buttons to your templates"
+icon: share-alt
+author:
+  name: Ayoze Hernández Díaz
+  email: ayoze.dev@gmail.com
+homepage: https://github.com/ayozehd/sharer
+keywords: plugin, social, share, buttons
+bugs: https://github.com/ayozehd/sharer/issues
+docs: https://github.com/ayozehd/sharer/blob/master/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    built_in_css:
+      type: toggle
+      label: Built-in CSS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    fontawesome_icons:
+      type: toggle
+      label: Use FontAwesome Icons / SVG
+      help: Disable cause button icons will be replaced by SVG images. Enabled use FontAwesome icons.
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    fontawesome_v4:
+      type: toggle
+      label: FontAwesome v4
+      help: Use old FontAwesome version instead of new Branding Icon Set. Beaware some icons could be missing!
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    fontawesome_css:
+      type: toggle
+      label: Include FontAwesome Files
+      help: If FontAwesome icons are enabled and your theme does not include it, you must enable this option to add required CSS files.
+      highlight: 0
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    template:
+      type: select
+      size: medium
+      label: Template
+      help: Different styles for buttons
+      default: rounded
+      options:
+        rounded: Rounded
+        circles: Circles
+
+    facebook.fieldset:
+      type: fieldset
+      title: Facebook
+      icon: facebook
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.facebook.enabled:
+          type: toggle
+          label: Facebook
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Facebook button
+        buttons.facebook.label:
+          type: text
+          label: Facebook Label
+          default: Facebook
+          placeholder: Label
+          help: Customize Facebook button label
+    twitter.fieldset:
+      type: fieldset
+      title: Twitter
+      icon: twitter
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.twitter.enabled:
+          type: toggle
+          label: Twitter
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Twitter button
+        buttons.twitter.label:
+          type: text
+          label: Twitter Label
+          default: Twitter
+          placeholder: Label
+          help: Customize Twitter button label
+        buttons.twitter.via:
+          type: text
+          toggleable: true
+          label: Twitter Via
+          help: Mention a Twitter account without '@'
+          prepend: '@'
+        buttons.twitter.hashtags:
+          type: selectize
+          toggleable: true
+          label: Twitter Hashtags
+          help: Add hashtags separated by commas
+          prepend: '#'
+          validate:
+            type: commalist
+    linkedin.fieldset:
+      type: fieldset
+      title: Linkedin
+      icon: linkedin
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.linkedin.enabled:
+          type: toggle
+          label: Linkedin
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Linkedin button
+        buttons.linkedin.label:
+          type: text
+          label: Linkedin Label
+          default: Linkedin
+          placeholder: Label
+          help: Customize Linkedin button label
+    reddit.fieldset:
+      type: fieldset
+      title: Reddit
+      icon: reddit
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.reddit.enabled:
+          type: toggle
+          label: Reddit
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Reddit button
+        buttons.reddit.label:
+          type: text
+          label: Reddit Label
+          default: Reddit
+          placeholder: Label
+          help: Customize Reddit button label
+    pinterest.fieldset:
+      type: fieldset
+      title: Pinterest
+      icon: pinterest
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.pinterest.enabled:
+          type: toggle
+          label: Pinterest
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Pinterest button
+        buttons.pinterest.label:
+          type: text
+          label: Pinterest Label
+          default: Pinterest
+          placeholder: Label
+          help: Customize Pinterest button label
+    flipboard.fieldset:
+      type: fieldset
+      title: Flipboard
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.flipboard.enabled:
+          type: toggle
+          label: Flipboard
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Flipboard button
+        buttons.flipboard.label:
+          type: text
+          label: Flipboard Label
+          default: Flipboard
+          placeholder: Label
+          help: Customize Flipboard button label
+    whatsapp.fieldset:
+      type: fieldset
+      title: WhatsApp
+      icon: whatsapp
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.whatsapp.enabled:
+          type: toggle
+          label: WhatsApp
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable WhatsApp button
+        buttons.whatsapp.label:
+          type: text
+          label: WhatsApp Label
+          default: WhatsApp
+          placeholder: Label
+          help: Customize WhatsApp button label
+    telegram.fieldset:
+      type: fieldset
+      title: Telegram
+      icon: telegram
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.telegram.enabled:
+          type: toggle
+          label: Telegram
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Telegram button
+        buttons.telegram.label:
+          type: text
+          label: Telegram Label
+          default: Telegram
+          placeholder: Label
+          help: Customize Telegram button label
+    pocket.fieldset:
+      type: fieldset
+      title: Pocket
+      icon: get-pocket
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.pocket.enabled:
+          type: toggle
+          label: Pocket
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Pocket button
+        buttons.pocket.label:
+          type: text
+          label: Pocket Label
+          default: Pocket
+          placeholder: Label
+          help: Customize Pocket button label
+    xing.fieldset:
+      type: fieldset
+      title: Xing
+      icon: xing
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.xing.enabled:
+          type: toggle
+          label: Xing
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Xing button
+        buttons.xing.label:
+          type: text
+          label: Xing Label
+          default: Xing
+          placeholder: Label
+          help: Customize Xing button label
+    email.fieldset:
+      type: fieldset
+      title: Email
+      icon: envelope
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.email.enabled:
+          type: toggle
+          label: Email
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Email button
+        buttons.email.label:
+          type: text
+          label: Email Label
+          default: Email
+          placeholder: Label
+          help: Customize Email button label
+        buttons.email.to:
+          type: text
+          label: To (email address)
+          placeholder: example@email.com
+          help: Users will reply to this address when click on Email button
+          validate:
+            type: email
+        buttons.email.subject:
+          type: text
+          label: Subject
+          placeholder: Take a look to this site...
+          help: Type a default subject for the email
+    tumblr.fieldset:
+      type: fieldset
+      title: Tumblr
+      icon: tumblr
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.tumblr.enabled:
+          type: toggle
+          label: Tumblr
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Tumblr button
+        buttons.tumblr.label:
+          type: text
+          label: Tumblr Label
+          default: Tumblr
+          placeholder: Label
+          help: Customize Tumblr button label
+    line.fieldset:
+      type: fieldset
+      title: Line
+      collapsible: true
+      collapsed: true
+      fields:
+        buttons.line.enabled:
+          type: toggle
+          label: Line
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+          help: Enable or disable Line button
+        buttons.line.label:
+          type: text
+          label: Line Label
+          default: Line
+          placeholder: Label
+          help: Customize Line button label
