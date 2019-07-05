@@ -13,9 +13,9 @@ Installing the Sharer-plugin can be done in one of two ways. The GPM (Grav Packa
 
 The simplest way to install this plugin is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm) through your system's terminal. From the root of your Grav folder type:
 
-    bin/gpm install timeline
+    bin/gpm install sharer
 
-This will install the Timeline-plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/timeline`.
+This will install the plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/sharer`.
 
 ### Manual Installation
 
