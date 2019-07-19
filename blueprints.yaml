@@ -1,5 +1,5 @@
 name: Sharer
-version: 0.2
+version: 1.0
 description: "**Sharer** is a plugin that lets you add social buttons to your templates"
 icon: share-alt
 author:
@@ -10,6 +10,8 @@ keywords: plugin, social, share, buttons
 bugs: https://github.com/ayozehd/sharer/issues
 docs: https://github.com/ayozehd/sharer/blob/master/README.md
 license: MIT
+dependencies:
+    - { name: grav, version: '>=1.6' }
 
 form:
   validation: strict
