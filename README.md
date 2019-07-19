@@ -28,12 +28,12 @@ You should now have all the plugin files under
 
 ## Usage
 
-Include this line in your template.html.twig file:
+Include this line in any template file similar to `item.html.twig`:
 ```
 {% include 'partials/sharer.html.twig' %}
 ```
 
-Otherwise you can use a function which returns same results:
+Or you can use a Twig function:
 ```
 {{ sharer() }}
 ```
@@ -46,11 +46,18 @@ _user/pages/blog/item.md_
 ```
 title: My Page
 sharer:
-    enabled: false
+    enabled: true|false
     buttons:
         email:
-            to: other@email.com
+            to: non-default@email.com
 ...
+```
+
+By default Sharer plugin get current page URL, but you can set a custom one following Page hierarchy as above.
+
+```
+sharer:
+    url: https://domain.org/example
 ```
 
 ### Settings
@@ -71,7 +78,7 @@ sharer:
 
 ## Extending
 
-Use a SCSS-compiler, like LibSass, and compile scss/sharer.scss to your assets in the plugin-folder. For example: `sass --watch --source-map true scss/sharer.scss assets/sharer.css`.
+Use a SCSS-compiler, like LibSass, and compile scss/sharer.scss to your assets in the plugin-folder. For example: `sass --watch --source-map true assets/scss/sharer.scss assets/scss/sharer.css`.
 
 ## License
 

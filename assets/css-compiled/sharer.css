@@ -215,11 +215,8 @@ button.sharer-button-rounded {
   @media only screen and (max-width: 765px) {
     .sharer-buttons-toolbar {
       margin: 10px auto 0; } }
-  @media only screen and (max-width: 325px) {
+  @media only screen and (max-width: 350px) {
     .sharer-buttons-toolbar {
       text-align: center; } }
-  @media only screen and (max-width: 220px) {
-    .sharer-buttons-toolbar {
-      text-align: left !important; } }
 
 /*# sourceMappingURL=sharer.css.map */

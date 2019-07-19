@@ -1,7 +1,7 @@
 {% set sharer_config = config.plugins.sharer|merge(page.header.sharer|defined({})) %}
 {% if sharer_config.enabled %}
+{% set url = sharer_config.url|defined(page.url(true)) %}
 <div class="sharer-buttons-toolbar clearfix {{ config.plugins.sharer.classes}}">
-    {% set url = url|defined(page.url(true)) %}
     {% set sharer_template = sharer_config.template|defined('rounded') %}
     {% for name, values in sharer_buttons %}
         {% if sharer_config.fontawesome_icons %}
