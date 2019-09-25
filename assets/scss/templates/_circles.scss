@@ -17,6 +17,7 @@ button[class^="sharer-circles--"] {
         margin-top: 0 auto;
         display: inline-block;
         vertical-align: baseline;
+        z-index: 1;
 
         svg {
             margin-top: -3.5px;
@@ -57,7 +58,7 @@ button[class^="sharer-circles--"] {
     }
 
     &:hover:before {
-        opacity: 1;
+        z-index: -1;
         transform: translate3d(-50%, -50%, 0) scale3d(5, 5, 5);
     }
 }

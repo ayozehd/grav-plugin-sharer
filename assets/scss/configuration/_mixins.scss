@@ -3,10 +3,8 @@
         .sharer-#{$template}--#{$name} {
             
             @if $template == 'rounded' {
-                & {
-                    z-index: -1;
-                    background: $color;
-                }
+                z-index: -1;
+                background: $color;
             } @else if $template == 'circles' {
                 // Required !important rules due to lower mixins priority. TODO
                 & {

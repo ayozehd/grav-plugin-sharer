@@ -3,7 +3,7 @@
 {% set url = sharer_config.url|defined(page.url(true)) %}
 <div class="sharer-buttons-toolbar clearfix {{ config.plugins.sharer.classes}}">
     {% set sharer_template = sharer_config.template|defined('rounded') %}
-    {% for name, values in sharer_buttons %}
+    {% for name, values in sharer_buttons if values.enabled %}
         {% if sharer_config.fontawesome_icons %}
             {% set fontawesome = sharer_config.fontawesome_v4 ? 'fa': values.icon_group|defined('fab') %}
             {% set icon = '<i class="'~ fontawesome ~' fa-' ~ values.icon ~ '"></i>' %}
@@ -12,17 +12,15 @@
                 {% include 'partials/svg/' ~ name ~ '.html.twig' ignore missing %}
             {% endset %}
         {% endif %}
-        {% if values.enabled %}
-            {% include 'partials/sharer_button.html.twig' with 
-                {
-                    'sharer': name,
-                    'template': sharer_template,
-                    'url': url,
-                    'icon': icon,
-                    'data': values
-                }
-            %}
-        {% endif %}
+        {% include 'partials/sharer_button.html.twig' with 
+            {
+                'sharer': name,
+                'template': sharer_template,
+                'url': url,
+                'icon': icon,
+                'data': values
+            }
+        %}
     {% endfor %}
 </div>
 {% endif %}

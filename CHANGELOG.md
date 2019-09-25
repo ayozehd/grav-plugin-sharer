@@ -1,3 +1,9 @@
+# v1.1.1
+##  25-09-2019
+
+1. [](#bugfix)
+    * Circles icon hidden on hover
+
 # v1.1
 ##  25-09-2019
 
