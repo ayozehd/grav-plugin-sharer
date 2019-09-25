@@ -1,0 +1,45 @@
+@mixin sharer-template($template) {
+    @each $name, $color in $sharer-buttons {
+        .sharer-#{$template}--#{$name} {
+            
+            @if $template == 'rounded' {
+                & {
+                    z-index: -1;
+                    background: $color;
+                }
+            } @else if $template == 'circles' {
+                // Required !important rules due to lower mixins priority. TODO
+                & {
+                    color: $color !important;
+                    border-color: $color !important;
+                }
+
+                svg path {
+                    fill: $color !important;
+                }
+
+                &:hover {
+                    color: #fff;
+                    svg path {
+                        fill: #fff !important;
+                    }
+                }
+
+                &:before {
+                    background-color: $color !important;
+                }
+
+                // Some customizations per button
+                @if $name == 'pocket' {
+                    .sharer-icon {
+                        margin-left: 0 !important;
+                    }
+                }
+
+            } @else {
+                @error "Unknown template #{$template}.";
+            }
+            
+        }
+    }
+}

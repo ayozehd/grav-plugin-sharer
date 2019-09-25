@@ -1,4 +1,4 @@
-button.sharer-button-rounded {
+button[class^="sharer-rounded--"] {
     display: inline-block;
     padding: 4px 10px ;
     border: 1px solid transparent;
@@ -9,8 +9,18 @@ button.sharer-button-rounded {
     opacity: .89;
     transition: opacity 0.15s linear;
 
-    .sharer-icon {        
+    .sharer-icon {
+        font-size: 14px;
+
+        .fa {
+            vertical-align: baseline;
+            line-height: 1;
+        }
+
         svg {
+            display: inline;
+            vertical-align: middle;
+
             path {
                 fill: #fff;
             }
@@ -26,8 +36,4 @@ button.sharer-button-rounded {
     }
 }
 
-@each $color, $value in $colors {
-    .sharer-button-rounded.#{$color} {
-        background: $value;
-    }
-}
+@include sharer-template('rounded');

@@ -1,5 +1,5 @@
 name: Sharer
-version: 1.0
+version: 1.1
 description: "**Sharer** is a plugin that lets you add social buttons to your templates"
 icon: share-alt
 author:
@@ -38,19 +38,19 @@ form:
         type: bool
     fontawesome_icons:
       type: toggle
-      label: Use FontAwesome Icons / SVG
-      help: Disable cause button icons will be replaced by SVG images. Enabled use FontAwesome icons.
+      label: Icons mode
+      help: Display button's icons as FontAwesome or SVG images.
       highlight: 1
       default: 1
       options:
-        1: PLUGIN_ADMIN.ENABLED
-        0: PLUGIN_ADMIN.DISABLED
+        1: FontAwesome
+        0: SVG
       validate:
         type: bool
     fontawesome_v4:
       type: toggle
       label: FontAwesome v4
-      help: Use old FontAwesome version instead of new Branding Icon Set. Beaware some icons could be missing!
+      help: Use old FontAwesome version instead of new Branding Icon Set. Beaware some icons are missing in v4!
       highlight: 0
       default: 0
       options:

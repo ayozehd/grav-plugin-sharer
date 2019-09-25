@@ -10,10 +10,12 @@ buttons:
         enabled: true
         label: Facebook
         icon: facebook
+        priority: 0
     twitter:
         enabled: true
         label: Twitter
         icon: twitter
+        priority: 1
         via:
         hashtags:
         title:
@@ -21,43 +23,52 @@ buttons:
         enabled: true
         label: Linkedin
         icon: linkedin
+        priority: 2
     reddit:
         enabled: true
         label: Reddit
         icon: reddit
+        priority: 3
     pinterest:
         enabled: true
         label: Pinterest
         icon: pinterest
+        priority: 4
     flipboard:
         enabled: true
         label: Flipboard
         icon: flipboard
+        priority: 5
     whatsapp:
         enabled: true
         label: WhatsApp
         icon: whatsapp
+        priority: 6
         title: true
     telegram:
         enabled: true
         label: Telegram
         icon: telegram
+        priority: 7
         to:
         title:
     pocket:
         enabled: true
         label: Pocket
         icon: get-pocket
+        priority: 8
     xing:
         enabled: true
         label: Xing
         icon: xing
+        priority: 9
         title:
     email:
         enabled: true
         label: Email
         icon: envelope
         icon_group: fas
+        priority: 10
         to:
         subject:
         title:
@@ -65,10 +76,12 @@ buttons:
         enabled: true
         label: Tumblr
         icon: tumblr
+        priority: 11
         caption:
         title:
     line:
         enabled: true
         label: Line
         icon: line
+        priority: 12
         title:

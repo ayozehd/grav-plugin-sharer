@@ -1,9 +1,9 @@
 <?php
 namespace Grav\Plugin;
 use Grav\Common\Plugin;
+
 class SharerPlugin extends Plugin
 {
-    protected $sharer_cache_id;
 
     public static function getSubscribedEvents() {
         return [
@@ -18,19 +18,12 @@ class SharerPlugin extends Plugin
             return;
         }
 
-        $this->initSetup();
-
         $this->enable([
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onAssetsInitialized' => ['onAssetsInitialized', 0],
             'onTwigInitialized'   => ['onTwigInitialized', 0]
         ]);
-    }
-
-    private function initSetup()
-    {
-        $this->sharer_cache_id = md5('sharer-plugin'.$this->grav['cache']->getKey());
     }
 
     /**
@@ -46,38 +39,20 @@ class SharerPlugin extends Plugin
      */
     public function onTwigSiteVariables()
     {
-        $config = $this->config->get('plugins.lastfm');
+        $buttons = $this->config->get('plugins.sharer.buttons');
 
-        $cache = $this->grav['cache'];
+        // Sorting buttons by priority value
+        uasort($buttons, function($a, $b) {
+			return $a['priority'] < $b['priority'] ? -1 : $a['priority'] == $b['priority'] ? 0 : -1;
+        });
 
-        $data = $cache->fetch($this->sharer_cache_id);
-
-        if(!$data) {
-
-            $this->grav['debugger']->addMessage('sharer cache miss.');
-
-            try {
-                
-                $data = $this->config->get('plugins.sharer.buttons');
-
-            } catch(Exception $e) {
-
-                $this->grav['log']->error('plugin.sharer: '. $e->getMessage());
-            }
-
-            $cache->save($this->sharer_cache_id, $data);
-
-        } else {
-            $this->grav['debugger']->addMessage('sharer cache hit.');
-        }
-
-        $twig = $this->grav['twig'];
-        $twig->twig_vars['sharer_buttons'] = $data;
+        $this->grav['twig']->twig_vars['sharer_buttons'] = $buttons;
     }
 
     public function onAssetsInitialized()
     {
         $config = $this->config->get('plugins.sharer');
+
         if ($config['built_in_css']) {
             $this->grav['assets']->addCss('plugin://sharer/assets/css-compiled/sharer.css');
         }
@@ -104,9 +79,10 @@ class SharerPlugin extends Plugin
     }
 
     public function renderTemplate() {
-        $page = $this->grav['page'];
+
         return $this->grav['twig']->processTemplate('partials/sharer.html.twig', [
-            'page' => $page
+            'page' => $this->grav['page']   // current page
         ]);
+
     }
 }

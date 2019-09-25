@@ -1,4 +1,4 @@
-<button class="sharer-button-{{ template }} {{ sharer }}" data-sharer="{{ sharer }}"
+<button class="sharer-{{ template }}--{{ sharer }}" data-sharer="{{ sharer }}"
     data-url="{{ url|defined('#') }}"
     {% if data.title %}data-title="{{ data.title|defined(page.title) }}"{% endif %}
     {% if data.hashtags %}data-hashtags="{{ data.hashtags|join(',') }}"{% endif %}

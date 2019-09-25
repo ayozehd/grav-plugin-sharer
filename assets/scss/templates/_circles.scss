@@ -1,4 +1,4 @@
-button.sharer-button-circles {
+button[class^="sharer-circles--"] {
     position: relative;
     z-index: 1;
     width: 50px;
@@ -8,50 +8,44 @@ button.sharer-button-circles {
   	display: inline-block;
   	margin: 0 5px 8px;
   	border-radius: 50%;
-  	font-size: 30px;
+  	font-size: 28px;
   	color: #111;
     overflow: hidden;
     transition: color 0.4s ease-in-out;
 
     .sharer-icon {
-        margin: 0;
-        display: inline;
+        margin-top: 0 auto;
+        display: inline-block;
         vertical-align: baseline;
-        line-height: 1.2;
-        
-        i,svg path {
-            z-index: 10;
-        }
 
         svg {
-            margin-top: -4px;
+            margin-top: -3.5px;
+        }
+
+        @media only screen and (min-width: 768px) {
+            margin-left: 2px;
         }
     }
 
     .sharer-label {
         display: none;
         visibility: hidden;
+        opacity: 0;
     }
 
-    @media only screen and (min-width: 768px) {
-        .sharer-icon {
-            margin-left: 2px;
-        }
-    }
-
-    &::before {
+    &:before {
         content: '';
         z-index: -1;
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 1rem;
-        height: 1rem;
+        width: .8rem;
+        height: .8rem;
         border-radius: 50%;
         background-color: #111;
         transform-origin: center;
         transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
-        transition: transform 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
     
     &:hover {
@@ -62,21 +56,10 @@ button.sharer-button-circles {
         }
     }
 
-    &:hover::before {
-        z-index: -1;
-        transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+    &:hover:before {
+        opacity: 1;
+        transform: translate3d(-50%, -50%, 0) scale3d(5, 5, 5);
     }
 }
 
-@each $color, $value in $colors {
-    .sharer-button-circles.#{$color} {
-        color: $value;
-        border-color: $value;
-        svg path {
-            fill: $value;
-        }
-        &::before {
-            background-color: $value;
-        }
-    }
-}
+@include sharer-template('circles');
