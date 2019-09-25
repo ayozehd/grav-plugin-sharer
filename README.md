@@ -72,8 +72,10 @@ sharer:
 | template | rounded | `rounded` or `circles` | Choose a template to render buttons |
 | buttons: |  |  |  |
 |   enabled | true | `true` or `false` | Enable or disable this button |
-|   label | Name | `asc` or `desc` | Customize the label of button |
-|   icon | FontAwesome Icon | `asc` or `desc` | Customize the label of button |
+|   label | Name | `string` | Customize the label of button |
+|   icon | FontAwesome Icon | `string` | Customize the FontAwesome icon |
+|   icon_group | FontAwesome Icon Group | `far`, `far` or `fab` | FontAwesome Icon Groups: Solid, Regular or Brand |
+|   priority | `0-12` | `number` | Position of buttons |
 |   More params | * | * | Some buttons support more parameters like `to` or `hashtags` from [Share.js](https://ellisonleao.github.io/sharer.js/). Check out all them!
 
 ## Extending
