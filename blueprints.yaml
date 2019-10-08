@@ -105,6 +105,13 @@ form:
           default: Facebook
           placeholder: Label
           help: Customize Facebook button label
+        buttons.facebook.priority:
+          type: number
+          label: Priority
+          default: 1
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     twitter.fieldset:
       type: fieldset
       title: Twitter
@@ -143,6 +150,13 @@ form:
           prepend: '#'
           validate:
             type: commalist
+        buttons.twitter.priority:
+          type: number
+          label: Priority
+          default: 2
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     linkedin.fieldset:
       type: fieldset
       title: Linkedin
@@ -167,6 +181,13 @@ form:
           default: Linkedin
           placeholder: Label
           help: Customize Linkedin button label
+        buttons.linkedin.priority:
+          type: number
+          label: Priority
+          default: 3
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     reddit.fieldset:
       type: fieldset
       title: Reddit
@@ -191,6 +212,13 @@ form:
           default: Reddit
           placeholder: Label
           help: Customize Reddit button label
+        buttons.reddit.priority:
+          type: number
+          label: Priority
+          default: 4
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     pinterest.fieldset:
       type: fieldset
       title: Pinterest
@@ -215,6 +243,13 @@ form:
           default: Pinterest
           placeholder: Label
           help: Customize Pinterest button label
+        buttons.pinterest.priority:
+          type: number
+          label: Priority
+          default: 5
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     flipboard.fieldset:
       type: fieldset
       title: Flipboard
@@ -238,6 +273,13 @@ form:
           default: Flipboard
           placeholder: Label
           help: Customize Flipboard button label
+        buttons.flipboard.priority:
+          type: number
+          label: Priority
+          default: 6
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     whatsapp.fieldset:
       type: fieldset
       title: WhatsApp
@@ -262,6 +304,13 @@ form:
           default: WhatsApp
           placeholder: Label
           help: Customize WhatsApp button label
+        buttons.whatsapp.priority:
+          type: number
+          label: Priority
+          default: 7
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     telegram.fieldset:
       type: fieldset
       title: Telegram
@@ -286,6 +335,13 @@ form:
           default: Telegram
           placeholder: Label
           help: Customize Telegram button label
+        buttons.telegram.priority:
+          type: number
+          label: Priority
+          default: 8
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     pocket.fieldset:
       type: fieldset
       title: Pocket
@@ -310,6 +366,13 @@ form:
           default: Pocket
           placeholder: Label
           help: Customize Pocket button label
+        buttons.pocket.priority:
+          type: number
+          label: Priority
+          default: 9
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     xing.fieldset:
       type: fieldset
       title: Xing
@@ -334,6 +397,13 @@ form:
           default: Xing
           placeholder: Label
           help: Customize Xing button label
+        buttons.xing.priority:
+          type: number
+          label: Priority
+          default: 10
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     email.fieldset:
       type: fieldset
       title: Email
@@ -370,6 +440,13 @@ form:
           label: Subject
           placeholder: Take a look to this site...
           help: Type a default subject for the email
+        buttons.email.priority:
+          type: number
+          label: Priority
+          default: 11
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     tumblr.fieldset:
       type: fieldset
       title: Tumblr
@@ -394,6 +471,13 @@ form:
           default: Tumblr
           placeholder: Label
           help: Customize Tumblr button label
+        buttons.tumblr.priority:
+          type: number
+          label: Priority
+          default: 12
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first
     line.fieldset:
       type: fieldset
       title: Line
@@ -417,3 +501,10 @@ form:
           default: Line
           placeholder: Label
           help: Customize Line button label
+        buttons.line.priority:
+          type: number
+          label: Priority
+          default: 13
+          validate:
+            type: number
+          help: Set a prior for this button, lower values appear first

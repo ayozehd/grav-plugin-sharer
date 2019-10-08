@@ -4,7 +4,6 @@ fontawesome_icons: true
 fontawesome_v4: false
 fontawesome_css: true
 template: rounded
-classes:
 buttons:
     facebook:
         enabled: true
