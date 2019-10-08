@@ -1,31 +1,51 @@
-button[class^="sharer-rounded--"] {
-    display: inline-block;
-    padding: 4px 10px ;
-    border: 1px solid transparent;
-    margin: 0 auto 8px;
-    border-radius: 5px;
-    font-size: 15px;
-    color: #fff;
-    opacity: .89;
-    transition: opacity 0.15s linear;
+$template: "rounded";
 
-    .sharer-icon {
-        font-size: 16px;
-        line-height: 1.5;
-        vertical-align: middle;
+.sharer-buttons-toolbar {
+    @each $name, $color in $sharer-buttons {
+        button.sharer-#{$template}--#{$name} {
+            display: inline-block;
+            padding: 4px 10px;
+            border: 1px solid $color;
+            background-color: $color;
+            margin: 0 auto 8px;
+            border-radius: 5px;
+            font-size: 15px;
+            line-height: 20px;
+            color: #fff;
+            opacity: .89;
+            transition: opacity 0.15s linear;
 
-        svg path {
-            fill: #fff;
+            * {
+                box-sizing: border-box;
+            }
+
+            .sharer-icon {
+                font-size: 16px;
+                line-height: 1.5;
+                vertical-align: middle;
+
+                i {
+                    margin-right: 2px;
+                }
+                
+                svg {
+                    transform-origin: bottom center;
+                    transform: scale(.8);
+                    overflow: visible;
+                    path {
+                        fill: #fff;
+                    }
+                } 
+            }
+
+            .sharer-label {
+                line-height: 1.2;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
         }
     }
-
-    .sharer-label {
-        vertical-align: middle;
-    }
-
-    &:hover {
-        opacity: 1;
-    }
 }
-
-@include sharer-template('rounded');

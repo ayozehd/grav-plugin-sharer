@@ -1,26 +1,13 @@
 {% set sharer_config = config.plugins.sharer|merge(page.header.sharer|defined({})) %}
 {% if sharer_config.enabled %}
-{% set url = sharer_config.url|defined(page.url(true)) %}
-<div class="sharer-buttons-toolbar clearfix {{ config.plugins.sharer.classes}}">
-    {% set sharer_template = sharer_config.template|defined('rounded') %}
-    {% for name, values in sharer_buttons if values.enabled %}
-        {% if sharer_config.fontawesome_icons %}
-            {% set fontawesome = sharer_config.fontawesome_v4 ? 'fa': values.icon_group|defined('fab') %}
-            {% set icon = '<i class="'~ fontawesome ~' fa-' ~ values.icon ~ '"></i>' %}
-        {% else %}
-            {% set icon %}
-                {% include 'partials/svg/' ~ name ~ '.html.twig' ignore missing %}
-            {% endset %}
-        {% endif %}
-        {% include 'partials/sharer_button.html.twig' with 
-            {
-                'sharer': name,
-                'template': sharer_template,
-                'url': url,
-                'icon': icon,
-                'data': values
-            }
-        %}
-    {% endfor %}
-</div>
+    {% set url = sharer_config.url|defined(page.url(true)) %}
+    {% set template = sharer_config.template|defined('rounded') %}
+    {% include 'partials/sharer_templates/' ~ template ~ '.html.twig' ignore missing with
+        {
+            'template': template,
+            'config': sharer_config,
+            'url': url,
+            'page': page
+        }
+    %}
 {% endif %}

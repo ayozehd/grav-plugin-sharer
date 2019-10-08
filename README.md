@@ -4,6 +4,7 @@
 
 ![](screenshot_rounded.png)
 ![](screenshot_circles.png)
+![](8bit.gif)
 
 ## Installation
 

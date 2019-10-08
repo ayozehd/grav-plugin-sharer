@@ -1,0 +1,50 @@
+{% block sharer_template %}
+<div class="sharer-buttons-toolbar clearfix {% block sharer_classes %}{% endblock %}">
+    {% for button, values in config.buttons|sharer_sort_buttons if values.enabled %}
+
+        {% set icon %}
+            {% include 'partials/sharer_icon.html.twig' with {
+                'name': values.icon,
+                'icon_group': values.icon_group,
+                'config': config
+            } %}
+        {% endset %}
+
+        {% block sharer_button %}
+        <button class="{% block sharer_button_classes %}sharer-{{ template }}--{{ button }}{% endblock %}" data-sharer="{{ button }}"
+            {{ _self.sharer_data(values, page, url) }}
+            >
+
+            {% block sharer_icon %}
+            {% if icon %}
+                <span class="sharer-icon">
+                    {{ icon }}
+                </span>
+            {% endif %}
+            {% endblock %}
+
+            {% block sharer_label %}
+                <span class="sharer-label">{{ values.label }}</span>
+            {% endblock %}
+        </button>
+        {% endblock %}
+    {% endfor %}
+</div>        
+{% endblock %}
+
+{% macro sharer_data(data, page = "", url = "#") %}
+{% spaceless %}
+    data-url="{{ url }}"
+    data-title="{{ data.title|defined(page.title) }}"
+    {% if data.hashtags %}   data-hashtags="{{ data.hashtags|join(',') }}"{% endif %}
+    {% if data.hashtag %}    data-hashtag="{{ data.hashtag }}"            {% endif %}
+    {% if data.via %}        data-via="{{ data.via }}"                    {% endif %}
+    {% if data.to %}         data-to="{{ data.to }}"                      {% endif %}
+    {% if data.subject %}    data-subject="{{ data.subject }}"            {% endif %}
+    {% if data.image %}      data-image="{{ data.image }}"                {% endif %}
+    {% if data.picture %}    data-picture="{{ data.picture }}"            {% endif %}
+    {% if data.image %}      data-picture="{{ data.image }}"              {% endif %}
+    {% if data.caption %}    data-caption="{{ data.caption }}"            {% endif %}
+    {% if data.description %}data-description="{{ data.description }}"    {% endif %}
+{% endspaceless %}
+{% endmacro %}

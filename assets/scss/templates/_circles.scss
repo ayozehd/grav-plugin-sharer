@@ -1,66 +1,90 @@
-button[class^="sharer-circles--"] {
-    position: relative;
-    z-index: 1;
-    width: 50px;
-    height: 50px;
-    border: 1px solid #111;
-    background: transparent;
-  	display: inline-block;
-  	margin: 0 5px 8px;
-  	border-radius: 50%;
-  	font-size: 28px;
-  	color: #111;
-    overflow: hidden;
-    transition: color 0.4s ease-in-out;
+$template: 'circles';
 
-    .sharer-icon {
-        margin-top: 0 auto;
-        display: inline-block;
-        vertical-align: baseline;
-        z-index: 1;
+$icon-size: 30px;
 
-        svg {
-            margin-top: -3.5px;
-        }
+.sharer-buttons-toolbar {
+    @each $name, $color in $sharer-buttons {
+        button.sharer-#{$template}--#{$name} {
+            position: relative;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+            border: 1px solid $color;
+            background: transparent;
+            display: inline-block;
+            margin: 0 5px 8px 0;
+            border-radius: 50%;
+            font-size: 28px;
+            color: $color;
+            overflow: hidden;
+            transition: color 0.4s ease-in-out;
+            cursor: pointer;
 
-        @media only screen and (min-width: 768px) {
-            margin-left: 2px;
-        }
-    }
+            .sharer-label {
+                display: none !important;
+                visibility: hidden;
+                opacity: 0;
+            }
 
-    .sharer-label {
-        display: none;
-        visibility: hidden;
-        opacity: 0;
-    }
+            .sharer-icon {
+                margin-top: 0 auto;
+                display: inline-block;
+                vertical-align: baseline;
+                z-index: 1;
+                font-size: $icon-size;
+                
+                svg {
+                    margin-top: -3.5px;
 
-    &:before {
-        content: '';
-        z-index: -1;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: .8rem;
-        height: .8rem;
-        border-radius: 50%;
-        background-color: #111;
-        transform-origin: center;
-        transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
-        transition: all 0.3s ease-in-out;
-    }
+                    path {
+                        fill: $color;
+                    }
+                }
     
-    &:hover {
-        cursor: pointer;
-        color: #fff;
-        svg path {
-            fill: #fff;
-        }
-    }
+        
+                @media only screen and (min-width: 768px) {
+                    margin-left: 2px;
+                    @if $name == 'pocket' {
+                        margin-left: 0;
+                    }
+                }
 
-    &:hover:before {
-        z-index: -1;
-        transform: translate3d(-50%, -50%, 0) scale3d(5, 5, 5);
+                @if $name == 'pocket' {
+                    & {
+                        margin-left: 0 !important;
+                    }
+                }
+            }
+
+            &:hover,
+            &:focus {
+                color: #fff;
+
+                svg path {
+                    fill: #fff;
+                }
+            }
+
+            &:before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: .8rem;
+                height: .8rem;
+                border-radius: 50%;
+                background-color: $color;
+                transform-origin: center;
+                transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover:before,
+            &:focus:before {
+                z-index: -1;
+                transform: translate3d(-50%, -50%, 0) scale3d(5, 5, 5);
+            }
+        }
     }
 }
-
-@include sharer-template('circles');

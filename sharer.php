@@ -20,7 +20,6 @@ class SharerPlugin extends Plugin
 
         $this->enable([
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
-            'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onAssetsInitialized' => ['onAssetsInitialized', 0],
             'onTwigInitialized'   => ['onTwigInitialized', 0]
         ]);
@@ -34,21 +33,6 @@ class SharerPlugin extends Plugin
         $this->grav['twig']->twig_paths[] = __DIR__ . '/templates';
     }
 
-    /**
-     * Add CSS and JS to page header
-     */
-    public function onTwigSiteVariables()
-    {
-        $buttons = $this->config->get('plugins.sharer.buttons');
-
-        // Sorting buttons by priority value
-        uasort($buttons, function($a, $b) {
-			return $a['priority'] < $b['priority'] ? -1 : $a['priority'] == $b['priority'] ? 0 : -1;
-        });
-
-        $this->grav['twig']->twig_vars['sharer_buttons'] = $buttons;
-    }
-
     public function onAssetsInitialized()
     {
         $config = $this->config->get('plugins.sharer');
@@ -59,13 +43,14 @@ class SharerPlugin extends Plugin
 
         if($config['fontawesome_icons'] && $config['fontawesome_css']) {
             if($config['fontawesome_v4']) {
-                $this->grav['assets']->addCss('plugin://sharer/assets/css/font-awesome-4.7.0.min.css');
+                $this->grav['assets']->addCss('plugin://sharer/assets/css/font-awesome-4.7.0.min.css', 99);
             } else {
-                $this->grav['assets']->addJs('plugin://sharer/assets/js/fontawesome-all.min.js');
+                $this->grav['assets']->addCss('plugin://sharer/assets/css/fontawesome-5.11.2.min.css', 99);
+                $this->grav['assets']->addCss('plugin://sharer/assets/css/all.min.css', 99);
             }
         }
 
-        $this->grav['assets']->addJs('plugin://sharer/assets/js/sharer.min.js', 110);
+        $this->grav['assets']->addJs('plugin://sharer/assets/js/sharer.min.js', 100);
     }
 
     /**
@@ -76,13 +61,27 @@ class SharerPlugin extends Plugin
         $this->grav['twig']->twig()->addFunction(
             new \Twig_SimpleFunction('sharer', [$this, 'renderTemplate'])
         );
+
+        $this->grav['twig']->twig()->addFilter(
+            new \Twig_SimpleFilter('sharer_sort_buttons', [$this, 'sortButtonsByPriority'])
+        );
     }
 
     public function renderTemplate() {
 
         return $this->grav['twig']->processTemplate('partials/sharer.html.twig', [
-            'page' => $this->grav['page']   // current page
+            'page' => $this->grav['page']
         ]);
 
+    }
+
+    // Sort buttons by priority parameter
+    public function sortButtonsByPriority($items = [])
+    {
+        uasort($items, function($a, $b) {
+			return $a['priority'] <=> $b['priority'];
+        });
+
+        return $items;
     }
 }

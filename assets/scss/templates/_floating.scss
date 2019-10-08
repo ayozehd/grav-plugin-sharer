@@ -1,0 +1,85 @@
+// Credits to Daniel Bruce (http://danielbruce.se/) - https://codepen.io/havardob/pen/zNPjeg
+$template: 'floating';
+
+// Colors
+$white: #fff;
+
+.sharer-buttons-toolbar.floating {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    box-sizing: border-box;
+    transform: translateY(-50%);
+    vertical-align: middle;
+    width: auto;
+
+    @each $name, $color in $sharer-buttons {
+        button.sharer-#{$template}--#{$name} {
+            display: block;
+            box-sizing: border-box;
+            margin-left: -2px;
+            height: 45px;
+            width: 45px;
+            border-radius: 0 25px 25px 0;
+            border: 2px solid $color;
+            background: rgba($color, .1);
+            margin-bottom: .3rem;
+            transition: all .4s ease;
+            color: $color;
+            text-decoration: none;
+            line-height: 45px;
+            position: relative;
+
+            .sharer-label {
+                padding: 0 18px 0 15px;
+                position: absolute;
+                left: -120px;
+                transition: left .4s ease;
+                transform: translateY(-50%);
+            }
+
+            .sharer-icon {
+                display: inline-block;
+                font-size: 1.5em;
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+
+                svg {
+                    vertical-align: text-top;
+                    margin-top: 2px;
+                    @if $name == 'reddit' or $name == 'pocket' {
+                        margin-top: 4px;
+                    }
+                    path {
+                        fill: $color;
+                        transition: fill .4s ease;
+                    }
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                width: 160px;
+                color: $white;
+                background: $color;
+                
+                .sharer-label {
+                  left: 10px;
+                }
+
+                .sharer-icon {
+                    color: $white;
+                    svg {
+                        path {
+                            fill: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

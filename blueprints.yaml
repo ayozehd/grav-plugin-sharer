@@ -78,6 +78,8 @@ form:
       options:
         rounded: Rounded
         circles: Circles
+        floating: Floating
+        8bit: 8bit
 
     facebook.fieldset:
       type: fieldset

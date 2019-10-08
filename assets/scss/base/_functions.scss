@@ -1,0 +1,8 @@
+@function sharer-color($key) {
+	@if map-has-key($sharer-buttons, $key) {
+		@return map-get($sharer-buttons, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $colors.";
+	@return null;
+}
