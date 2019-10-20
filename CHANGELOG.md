@@ -1,3 +1,12 @@
+# v1.2.1
+##  20-10-2019
+
+1. [](#bugfix)
+    * `8bit` buttons padding was too much for >768px screens
+    * Typo fix `title: true` in blueprints
+2. [](#improved)
+    * Moved macros to a new file to avoid Twig deprecation
+
 # v1.2.0
 ##  08-10-2019
 

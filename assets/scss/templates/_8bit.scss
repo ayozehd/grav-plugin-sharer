@@ -212,7 +212,7 @@ $lg: 980;
             }
 
             @include mq($md) {
-                padding: 18px 30px;
+                padding: 17px 30px;
         
                 @include font-size(12);
                 font-weight: bold;

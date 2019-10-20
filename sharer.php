@@ -54,7 +54,7 @@ class SharerPlugin extends Plugin
     }
 
     /**
-     * Add simple `sharer()` Twig function
+     * Add simple `sharer()` Twig function and `|sharer_sort_buttons` filter
      */
     public function onTwigInitialized()
     {

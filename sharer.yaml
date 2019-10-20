@@ -43,7 +43,7 @@ buttons:
         label: WhatsApp
         icon: whatsapp
         priority: 6
-        title: true
+        title:
     telegram:
         enabled: true
         label: Telegram

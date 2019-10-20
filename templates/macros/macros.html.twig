@@ -1,0 +1,16 @@
+{% macro sharer_data(data, page = "", url = "#") %}
+{% spaceless %}
+    data-url="{{ url }}"
+    data-title="{{ data.title|defined(page.title) }}"
+    {% if data.hashtags %}   data-hashtags="{{ data.hashtags|join(',') }}"{% endif %}
+    {% if data.hashtag %}    data-hashtag="{{ data.hashtag }}"            {% endif %}
+    {% if data.via %}        data-via="{{ data.via }}"                    {% endif %}
+    {% if data.to %}         data-to="{{ data.to }}"                      {% endif %}
+    {% if data.subject %}    data-subject="{{ data.subject }}"            {% endif %}
+    {% if data.image %}      data-image="{{ data.image }}"                {% endif %}
+    {% if data.picture %}    data-picture="{{ data.picture }}"            {% endif %}
+    {% if data.image %}      data-picture="{{ data.image }}"              {% endif %}
+    {% if data.caption %}    data-caption="{{ data.caption }}"            {% endif %}
+    {% if data.description %}data-description="{{ data.description }}"    {% endif %}
+{% endspaceless %}
+{% endmacro %}
