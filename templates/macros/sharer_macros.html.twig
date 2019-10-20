@@ -1,4 +1,4 @@
-{% macro sharer_data(data, page = "", url = "#") %}
+{% macro sharer_data(data, page = {title: ''}, url = "#") %}
 {% spaceless %}
     data-url="{{ url }}"
     data-title="{{ data.title|defined(page.title) }}"

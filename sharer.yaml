@@ -15,9 +15,6 @@ buttons:
         label: Twitter
         icon: twitter
         priority: 1
-        via:
-        hashtags:
-        title:
     linkedin:
         enabled: true
         label: Linkedin
@@ -43,14 +40,11 @@ buttons:
         label: WhatsApp
         icon: whatsapp
         priority: 6
-        title:
     telegram:
         enabled: true
         label: Telegram
         icon: telegram
         priority: 7
-        to:
-        title:
     pocket:
         enabled: true
         label: Pocket
@@ -61,26 +55,19 @@ buttons:
         label: Xing
         icon: xing
         priority: 9
-        title:
     email:
         enabled: true
         label: Email
         icon: envelope
         icon_group: fas
         priority: 10
-        to:
-        subject:
-        title:
     tumblr:
         enabled: true
         label: Tumblr
         icon: tumblr
         priority: 11
-        caption:
-        title:
     line:
         enabled: true
         label: Line
         icon: line
         priority: 12
-        title:
