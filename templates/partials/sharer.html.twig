@@ -1,4 +1,3 @@
-{% set sharer_config = config.plugins.sharer|merge(page.header.sharer|defined({})) %}
 {% if sharer_config.enabled %}
     {% set url = sharer_config.url|defined(page.url(true)) %}
     {% set template = sharer_config.template|defined('rounded') %}
