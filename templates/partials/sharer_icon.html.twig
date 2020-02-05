@@ -4,7 +4,7 @@
     {% set fontawesome = config.fontawesome_v4 ? 'fa': icon_group|defined('fab') %}
     <i class="{{ fontawesome }} fa-{{ name }}"></i>
 {% else %}
-        {% include 'partials/sharer_svg_icons/' ~ name ~ '.html.twig' ignore missing %}
+    {% include 'partials/sharer_svg_icons/' ~ name ~ '.html.twig' ignore missing %}
 {% endif %}
 
 {% endspaceless %}

@@ -20,6 +20,7 @@ class SharerPlugin extends Plugin
 
         $this->enable([
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
+            'onTwigSiteVariables' => ['onTwigSiteVariables', 0],
             'onAssetsInitialized' => ['onAssetsInitialized', 0],
             'onTwigInitialized'   => ['onTwigInitialized', 0]
         ]);
@@ -51,6 +52,32 @@ class SharerPlugin extends Plugin
         }
 
         $this->grav['assets']->addJs('plugin://sharer/assets/js/sharer.min.js', 100);
+    }
+
+    /**
+     * Merge config and page header frontmatter values in a Twig var
+     */
+    public function onTwigSiteVariables()
+    {
+        $config = $this->config->get('plugins.sharer');
+
+        $page = $this->grav['page'];
+        $header = $page->header();
+
+        if (isset($header->sharer) && is_array($header->sharer)) {
+
+          $page_frontmatter = $header->sharer;
+
+        } else {
+
+          $page_frontmatter = array();
+          
+        }
+
+        $data = array_replace_recursive($config, $page_frontmatter);
+
+        $twig = $this->grav['twig'];
+        $twig->twig_vars['sharer_config'] = $data;
     }
 
     /**
