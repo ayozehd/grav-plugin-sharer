@@ -1,12 +1,12 @@
 name: Sharer
-version: 1.2.2
+version: 1.2.3
 description: "**Sharer** is a plugin that lets you add social buttons to your templates"
 icon: share-alt
 author:
   name: Ayoze Hernández Díaz
   email: ayoze.dev@gmail.com
 homepage: https://github.com/ayozehd/sharer
-keywords: plugin, social, share, buttons
+keywords: plugin, social, share, buttons, seo
 bugs: https://github.com/ayozehd/sharer/issues
 docs: https://github.com/ayozehd/sharer/blob/master/README.md
 license: MIT
@@ -49,7 +49,7 @@ form:
         type: bool
     fontawesome_v4:
       type: toggle
-      label: FontAwesome v4
+      label: FontAwesome v4 / v5
       help: Use old FontAwesome version instead of new Branding Icon Set. Beaware some icons are missing in v4!
       highlight: 0
       default: 0
@@ -61,7 +61,7 @@ form:
     fontawesome_css:
       type: toggle
       label: Include FontAwesome Files
-      help: If FontAwesome icons are enabled and your theme does not include it, you must enable this option to add required CSS files.
+      help: Enabled include the required assets CSS to render FontAwesome icons. Disable it if your theme already include the library
       highlight: 0
       default: 1
       options:
@@ -73,7 +73,7 @@ form:
       type: select
       size: medium
       label: Template
-      help: Different styles for buttons
+      help: Different styles for Sharer.js buttons
       default: rounded
       options:
         rounded: Rounded
