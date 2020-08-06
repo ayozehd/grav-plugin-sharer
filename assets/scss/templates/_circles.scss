@@ -85,6 +85,21 @@ $icon-size: 30px;
                 z-index: -1;
                 transform: translate3d(-50%, -50%, 0) scale3d(5, 5, 5);
             }
+
+            @media not all and (min-resolution:.001dpcm) {
+                @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+                    i[class^="fa*"] { 
+                        transform: translate(-50%) !important;
+                        -webkit-transform: translate(-50%) !important;
+                    }
+
+                    @if $name == 'facebook' {
+                        & {
+                            line-height: 1.5 !important;
+                        }
+                    }
+                }
+            }
         }
     }
 }
